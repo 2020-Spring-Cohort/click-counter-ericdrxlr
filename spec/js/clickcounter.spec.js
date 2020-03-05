@@ -1,66 +1,66 @@
-describe ('Click Counter', function()
+describe ('Click Counter', () =>
 {
     let sut;
 
-    beforeEach(function()
+    beforeEach(() =>
     {
         sut = new ClickCounter();
     })
-    describe('usersClicks', function()
+    describe('usersClicks', () =>
     {
-        it('has initial value of 0', function()
+        it('has initial value of 0', () =>
         {
             expect(sut.usersClicks).toBe(0)
         });
     })
-    describe('get users clicks', function()
+    describe('get users clicks', () =>
     {
-        it('returns value of usersClicks', function()
+        it('returns value of usersClicks', () =>
         {
             expect(sut.getUsersClicks()).toBe(0)
         });
     })
-    describe('ClickIncrementor', function()
+    describe('ClickIncrementor', () =>
     {
-        it('increases value of usersClicks by 1', function()
+        it('increases value of usersClicks by 1', () =>
         {
             sut.clickIncrementor()   //Act
             expect(sut.usersClicks).toBe(1)
         });
     })
-    describe('get click companion count', function()
+    describe('get click companion count', () =>
     {
-        it('returns value of 0', function()
+        it('returns value of 0', () =>
         {
             expect(sut.getClickCompanionCount()).toBe(0)
         });
     })
-    describe('click companion value', function()
+    describe('click companion value', () =>
     {
-        it('returns cost of 100', function()
+        it('returns cost of 100', () =>
         {
             expect(sut.getClickCompanionValue()).toBe(100);
         });
     })
-    describe('purchase clicking companion', function()
+    describe('purchase clicking companion', () =>
     {
-        it('increases click companion count to 1', function()
+        it('decreases users clicks by companion value', () =>
         {
             sut.purchaseClickCompanion()
             expect(sut.clickCompanionCount).toBe(1)
         });
     })
-    describe('purchase clicking companion', function()
+    describe('purchase clicking companions', () =>
     {
-        it('decreases users clicks by 100', function()
+        it('increases click companion count to 1', () =>
         {
             sut.purchaseClickCompanion()
             expect(sut.clickCompanionCount).toBe(1)
         });
     })
-    describe('purchasing clicking companions', function()
+    describe('purchasing clicking companions', () =>
     {
-        it('increases companion value by 10%', function()
+        it('increases companion value by 10%', () =>
         {
             sut.purchaseClickCompanion()
             expect(sut.clickCompanionValue).toBe(110)

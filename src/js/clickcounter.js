@@ -4,9 +4,10 @@ class ClickCounter
     {
         this.usersClicks = 0;
         this.clickCompanionCount = 0;
-        this.clickCompanionValue = 100;
-        
-    }//methods below
+        this.clickCompanionValue = 100;        
+    }
+    
+    // METHODS BELOW
     getUsersClicks()
     {
         return this.usersClicks;
@@ -23,17 +24,19 @@ class ClickCounter
     {
         return this.clickCompanionValue;
     }
+    
+    purchaseClickCompanion()
+    {
+        this.clickCompanionCount++;
+        this.usersClicks =- this.clickCompanionValue;
+        this.purchaseFurtherClickCompanions();
+    } 
+
+    // METHODS JUST HOLDING THE EXTRA CODE
     purchaseFurtherClickCompanions()
     {
         this.clickCompanionValue = this.clickCompanionValue + (this.clickCompanionValue * .1);
     } 
-    purchaseClickCompanion()
-    {
-        this.clickCompanionCount++;
-        this.usersClicks =- 100;
-        this.purchaseFurtherClickCompanions();
-    } 
-    
    
 
 }
