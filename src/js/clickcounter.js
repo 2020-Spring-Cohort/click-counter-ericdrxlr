@@ -25,14 +25,15 @@ class ClickCounter
     }
     purchaseFurtherClickCompanions()
     {
-        clickCompanionValue = clickCompanionValue*1.1;
+        this.clickCompanionValue = this.clickCompanionValue + (this.clickCompanionValue * .1);
     } 
     purchaseClickCompanion()
     {
         this.clickCompanionCount++;
         this.usersClicks =- 100;
-        this.purchaseFurtherClickCompanions;   
+        this.purchaseFurtherClickCompanions();
     } 
+    
    
 
 }
