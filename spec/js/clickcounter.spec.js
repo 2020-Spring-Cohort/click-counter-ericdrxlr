@@ -66,5 +66,12 @@ describe ('Click Counter', () =>
             expect(sut.clickCompanionValue).toBe(110)
         });
     })
-   
+    describe('when purchasing click companion', () =>
+    {
+        it('companion count only increases if it has value of 100', () =>
+        {
+            sut.purchaseClickCompanion()
+            expect(sut.clickCompanionValue).toBe(110)
+        });
+    })
 }) 

@@ -27,8 +27,8 @@ class ClickCounter
     
     purchaseClickCompanion()
     {
-        this.clickCompanionCount++;
-        this.usersClicks =- this.clickCompanionValue;
+       return this.clickCompanionCount++;
+       return this.usersClicks =- this.clickCompanionValue;
         this.purchaseFurtherClickCompanions();
     } 
 
@@ -36,7 +36,12 @@ class ClickCounter
     purchaseFurtherClickCompanions()
     {
         this.clickCompanionValue = this.clickCompanionValue + (this.clickCompanionValue * .1);
-    } 
-   
-
+    }
+    purchaseCompanionCondition()
+    {
+        if (usersClicks >= clickCompanionValue)
+        {
+           this.purchaseClickCompanion;
+        }
+    }
 }
