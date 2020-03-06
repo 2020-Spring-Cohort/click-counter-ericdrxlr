@@ -74,4 +74,19 @@ describe ('Click Counter', () =>
             expect(sut.clickCompanionCount).toBe(0)
         });
     })
+    describe('get compounder count', () =>
+    {
+        it('returns value of 0', () =>
+        {
+            expect(sut.getCompounderCount()).toBe(0)
+        });
+    })
+    describe('compounder count', () =>
+    {
+        it('increments', () =>
+        {
+            sut.compounderIncrementor()
+            expect(sut.compounderCount).toBe(1)
+        });
+    })
 }) 

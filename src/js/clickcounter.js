@@ -4,7 +4,8 @@ class ClickCounter
     {
         this.usersClicks = 0;
         this.clickCompanionCount = 0;
-        this.clickCompanionValue = 100;        
+        this.clickCompanionValue = 100;
+        this.compounderCount = 0;        
     }
     
     // METHODS BELOW
@@ -31,13 +32,20 @@ class ClickCounter
            this.purchaseClickCompanion;
         }
     }
-    
     purchaseClickCompanion()
     {
        this.clickCompanionCount++;
        this.usersClicks =- this.clickCompanionValue;
        this.purchaseFurtherClickCompanions();
-    } 
+    }
+    getCompounderCount() 
+    {
+        return this.compounderCount;
+    }
+    compounderIncrementor()
+    {
+        this.compounderCount++;
+    }
 
     // METHODS JUST HOLDING THE EXTRA CODE
     purchaseFurtherClickCompanions()
