@@ -3,9 +3,10 @@ class ClickCounter
     constructor()
     {
         this.usersClicks = 0;
-        this.clickCompanionCount = 0;
-        this.clickCompanionValue = 100;
-        this.compounderCount = 0;        
+        this.companionCount = 0;
+        this.companionValue = 100;
+        this.compounderCount = 0;
+        this.compounderValue = 10;         
     }
     
     // METHODS BELOW
@@ -17,39 +18,52 @@ class ClickCounter
     {
         this.usersClicks++;
     }
-    getClickCompanionCount()
+    getcompanionCount()
     {
-        return this.clickCompanionCount;
+        return this.companionCount;
     }
-    getClickCompanionValue()
+    getcompanionValue()
     {
-        return this.clickCompanionValue;
+        return this.companionValue;
     }
     purchaseCompanionCondition()
     {
-        if (this.usersClicks >= this.clickCompanionValue)
+        if (this.usersClicks >= this.companionValue)
         {
-           this.purchaseClickCompanion;
+           this.purchaseClickCompanion();
         }
     }
     purchaseClickCompanion()
     {
-       this.clickCompanionCount++;
-       this.usersClicks =- this.clickCompanionValue;
-       this.purchaseFurtherClickCompanions();
+       this.companionCount++;
+       this.usersClicks -= this.companionValue;
+       this.purchasingCompanions();
     }
     getCompounderCount() 
     {
         return this.compounderCount;
     }
-    compounderIncrementor()
+    purchaseCompounder()
     {
         this.compounderCount++;
+        this.usersClicks -= this.compounderValue;
+        this.purchasingCompounders()
+    }
+    purchaseCompounderCondition()
+    {
+        if (this.usersClicks >= this.compounderValue)
+        {
+            this.purchaseCompounder()
+        }
     }
 
     // METHODS JUST HOLDING THE EXTRA CODE
-    purchaseFurtherClickCompanions()
+    purchasingCompanions()
     {
-        this.clickCompanionValue = this.clickCompanionValue + (this.clickCompanionValue * .1);
+        this.companionValue = this.companionValue + (this.companionValue * .1);
+    }
+    purchasingCompounders()
+    {
+        this.compounderValue = this.compounderValue + (this.compounderValue * .1);
     }
 }

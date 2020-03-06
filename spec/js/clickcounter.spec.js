@@ -32,22 +32,23 @@ describe ('Click Counter', () =>
     {
         it('returns value of 0', () =>
         {
-            expect(sut.getClickCompanionCount()).toBe(0)
+            expect(sut.getcompanionCount()).toBe(0)
         });
     })
     describe('click companion value', () =>
     {
         it('returns cost of 100', () =>
         {
-            expect(sut.getClickCompanionValue()).toBe(100);
+            expect(sut.getcompanionValue()).toBe(100);
         });
     })
     describe('purchase clicking companion', () =>
     {
         it('decreases users clicks by companion value', () =>
         {
+            sut.usersClicks = 101;
             sut.purchaseClickCompanion()
-            expect(sut.clickCompanionCount).toBe(1)
+            expect(sut.usersClicks).toBe(1)
         });
     })
     describe('purchase clicking companions', () =>
@@ -55,7 +56,7 @@ describe ('Click Counter', () =>
         it('increases click companion count to 1', () =>
         {
             sut.purchaseClickCompanion()
-            expect(sut.clickCompanionCount).toBe(1)
+            expect(sut.companionCount).toBe(1)
         });
     })
     describe('purchasing further clicking companions', () =>
@@ -63,15 +64,16 @@ describe ('Click Counter', () =>
         it('increases companion value by 10%', () =>
         {
             sut.purchaseClickCompanion()
-            expect(sut.clickCompanionValue).toBe(110)
+            expect(sut.companionValue).toBe(110)
         });
     })
-    describe('when purchasing click companion', () =>
+    describe('when purchasing click companion,', () =>
     {
-        it('companion count only increases if it has count greater or equal to comp. value', () =>
+        it('companion count only increases if it has userclicks greater or equal to comp. value', () =>
         {
+            sut.usersClicks = 101; 
             sut.purchaseCompanionCondition()
-            expect(sut.clickCompanionCount).toBe(0)
+            expect(sut.companionCount).toBe(1)
         });
     })
     describe('get compounder count', () =>
@@ -81,11 +83,37 @@ describe ('Click Counter', () =>
             expect(sut.getCompounderCount()).toBe(0)
         });
     })
-    describe('compounder count', () =>
+    describe('purchase compounder', () =>
     {
-        it('increments', () =>
+        it('increases compounder count to 1', () =>
         {
-            sut.compounderIncrementor()
+            sut.purchaseCompounder()
+            expect(sut.compounderCount).toBe(1)
+        });
+    })
+    describe('purchase compounder', () =>
+    {
+        it('decreases users clicks count by compounder value', () =>
+        {
+            sut.usersClicks = 11;
+            sut.purchaseCompounder()
+            expect(sut.usersClicks).toBe(1)
+        });
+    })
+    describe('purchasing compounder', () =>
+    {
+        it('increases compounder value by 10%', () =>
+        {
+            sut.purchaseCompounder()
+            expect(sut.compounderValue).toBe(11)
+        });
+    })
+    describe('purchasing compounder condition', () =>
+    {
+        it('compounder count only increases if clicks are >= comp. value', () =>
+        {
+            sut.usersClicks = 11;
+            sut.purchaseCompounderCondition()
             expect(sut.compounderCount).toBe(1)
         });
     })
