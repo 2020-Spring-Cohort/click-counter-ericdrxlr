@@ -24,24 +24,24 @@ class ClickCounter
     {
         return this.clickCompanionValue;
     }
+    purchaseCompanionCondition()
+    {
+        if (this.usersClicks >= this.clickCompanionValue)
+        {
+           this.purchaseClickCompanion;
+        }
+    }
     
     purchaseClickCompanion()
     {
-       return this.clickCompanionCount++;
-       return this.usersClicks =- this.clickCompanionValue;
-        this.purchaseFurtherClickCompanions();
+       this.clickCompanionCount++;
+       this.usersClicks =- this.clickCompanionValue;
+       this.purchaseFurtherClickCompanions();
     } 
 
     // METHODS JUST HOLDING THE EXTRA CODE
     purchaseFurtherClickCompanions()
     {
         this.clickCompanionValue = this.clickCompanionValue + (this.clickCompanionValue * .1);
-    }
-    purchaseCompanionCondition()
-    {
-        if (usersClicks >= clickCompanionValue)
-        {
-           this.purchaseClickCompanion;
-        }
     }
 }

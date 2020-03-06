@@ -58,7 +58,7 @@ describe ('Click Counter', () =>
             expect(sut.clickCompanionCount).toBe(1)
         });
     })
-    describe('purchasing clicking companions', () =>
+    describe('purchasing further clicking companions', () =>
     {
         it('increases companion value by 10%', () =>
         {
@@ -68,10 +68,10 @@ describe ('Click Counter', () =>
     })
     describe('when purchasing click companion', () =>
     {
-        it('companion count only increases if it has value of 100', () =>
+        it('companion count only increases if it has count greater or equal to comp. value', () =>
         {
-            sut.purchaseClickCompanion()
-            expect(sut.clickCompanionValue).toBe(110)
+            sut.purchaseCompanionCondition()
+            expect(sut.clickCompanionCount).toBe(0)
         });
     })
 }) 
