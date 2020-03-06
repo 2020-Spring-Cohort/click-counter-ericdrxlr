@@ -97,7 +97,7 @@ describe ('Click Counter', () =>
         {
             sut.usersClicks = 11;
             sut.purchaseCompounder()
-            expect(sut.usersClicks).toBe(1)
+            expect(sut.usersClicks).toBe(1.2)
         });
     })
     describe('purchasing compounder', () =>
@@ -115,6 +115,15 @@ describe ('Click Counter', () =>
             sut.usersClicks = 11;
             sut.purchaseCompounderCondition()
             expect(sut.compounderCount).toBe(1)
+        });
+    })
+    describe('purchasing compounder', () =>
+    {
+        it('increases click incrementor by 1.2', () =>
+        {
+            sut.usersClicks = 11;
+            sut.purchaseCompounder()
+            expect(sut.usersClicks).toBe(1.2)
         });
     })
 }) 

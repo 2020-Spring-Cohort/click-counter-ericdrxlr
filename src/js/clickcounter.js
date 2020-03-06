@@ -43,12 +43,6 @@ class ClickCounter
     {
         return this.compounderCount;
     }
-    purchaseCompounder()
-    {
-        this.compounderCount++;
-        this.usersClicks -= this.compounderValue;
-        this.purchasingCompounders()
-    }
     purchaseCompounderCondition()
     {
         if (this.usersClicks >= this.compounderValue)
@@ -56,7 +50,13 @@ class ClickCounter
             this.purchaseCompounder()
         }
     }
-
+    purchaseCompounder()
+    {
+        this.compounderCount++;
+        this.usersClicks -= this.compounderValue;
+        this.purchasingCompounders()
+        this.usersClickIncreases()
+    }
     // METHODS JUST HOLDING THE EXTRA CODE
     purchasingCompanions()
     {
@@ -65,5 +65,9 @@ class ClickCounter
     purchasingCompounders()
     {
         this.compounderValue = this.compounderValue + (this.compounderValue * .1);
+    }
+    usersClickIncreases()
+    {
+        this.usersClicks *= 1.2;
     }
 }
