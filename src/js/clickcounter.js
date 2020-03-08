@@ -127,6 +127,8 @@ const buttonElement = document.querySelector('#cookiebutton')
 const displayClicks = document.querySelector('#displayclicks')
 const cookieCounter = new ClickCounter()
 
+cookieButton(buttonElement, displayClicks, cookieCounter)
+updateCounter(displayClicks, cookieCounter)
 
 // const autoClick = setIntervals(autoClick, 1000)
 
