@@ -81,12 +81,12 @@ const updateCounter = (displayClicks, ClickCounter) =>
 }
 const cookieButton = (buttonElement, displayClicks, ClickCounter) =>
 {
-    cookieButton.addEventListener('click', () =>
+    buttonElement.addEventListener('click', () =>
     {
     ClickCounter.clickButton()
     updateCounter(displayClicks, ClickCounter)
-    enableCompanionButton()
-    enableCompounderButton()
+   // enableCompanionButton()
+   // enableCompounderButton()
 
     })
 }
@@ -126,8 +126,8 @@ const buttonElement = document.querySelector('#cookiebutton')
 const displayClicks = document.querySelector('#displayclicks')
 const cookieCounter = new ClickCounter()
 
-cookieButton = (buttonElement, displayClicks, ClickCounter)
-updateCounter = (displayClicks, ClickCounter)
+cookieButton = (buttonElement, displayClicks, cookieCounter)
+updateCounter = (displayClicks, cookieCounter)
 
 const autoClick = setInterval(autoClick, 1000)
 
@@ -135,5 +135,6 @@ function autoClick()
 {
     cookieCounter.addCompanionClicksToUsersClicks()
     updateCounter(displayClicks, cookieCounter)
-    enabl
+   // enableCompanionButton()
+  //  enableCompounderButton()
 }
