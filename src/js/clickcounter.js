@@ -18,11 +18,11 @@ class ClickCounter
     {
         this.usersClicks++;
     } 
-    getcompanionCount()
+    getCompanionCount()
     {
         return this.companionCount;
     }
-    getcompanionValue()
+    getCompanionValue()
     {
         return this.companionValue;
     }
@@ -85,8 +85,43 @@ const cookieButton = (buttonElement, displayClicks, ClickCounter) =>
     {
     ClickCounter.clickButton()
     updateCounter(displayClicks, ClickCounter)
+    enableCompanionButton()
+    enableCompounderButton()
+
     })
 }
+const updateCompanionCounter = (companionCountElement, companionCounter) =>
+{
+    companionCountElement.innerText = companionCounter.getCompanionCount()
+}
+const companionButton = (companionButtonElement, companionCountElement, companionValueElement, displayClicksElement, companionCounter)  => 
+{
+    companionButtonElement.addEventListener('click', function()
+    {
+        companionCounter.purchaseClickCompanion()
+        updateCompanionCounter(companionCountElement, companionCounter)
+        updateCompanionValue(companionValueElement, companionCounter)
+        updateCounter(displayClicksElement, companionCounter)
+        enableCompanionButton()
+        enableCompounderButton()
+    })
+}  
+const updateCompounderCounter = (compounderCountElement, compounderCounter) =>
+{
+    compounderCountElement.innerText = compounderCounter.getCompounderCount()
+}
+const compounderButton = (compounderButtonElement, compounderCountElement, compounderValueElement, displayClicksElement, compounderCounter)  => 
+{
+    compounderButtonElement.addEventListener('click', function()
+    {
+        compounderCounter.purchaseCompounder()
+        updateCompounderCounter(compounderCountElement, compounderCounter)
+        updateCompounderValue(compounderValueElement, compounderCounter)
+        updateCounter(displayClicksElement, compounderCounter)
+        enableCompanionButton()
+        enableCompounderButton()
+    })
+}    
 const buttonElement = document.querySelector('#cookiebutton')
 const displayClicks = document.querySelector('#displayclicks')
 const cookieCounter = new ClickCounter()
@@ -94,4 +129,11 @@ const cookieCounter = new ClickCounter()
 cookieButton = (buttonElement, displayClicks, ClickCounter)
 updateCounter = (displayClicks, ClickCounter)
 
-setInterval(cookieCounter.addCompanionClicksToUsersClicks(), 1000)
+const autoClick = setInterval(autoClick, 1000)
+
+function autoClick() 
+{
+    cookieCounter.addCompanionClicksToUsersClicks()
+    updateCounter(displayClicks, cookieCounter)
+    enabl
+}

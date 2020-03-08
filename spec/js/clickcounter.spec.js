@@ -32,14 +32,14 @@ describe ('Click Counter', () =>
     {
         it('returns value of 0', () =>
         {
-            expect(sut.getcompanionCount()).toBe(0)
+            expect(sut.getCompanionCount()).toBe(0)
         });
     })
     describe('click companion value', () =>
     {
         it('returns cost of 100', () =>
         {
-            expect(sut.getcompanionValue()).toBe(100);
+            expect(sut.getCompanionValue()).toBe(100);
         });
     })
     describe('purchase clicking companion', () =>
