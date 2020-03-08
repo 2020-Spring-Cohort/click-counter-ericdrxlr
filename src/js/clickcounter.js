@@ -128,10 +128,10 @@ const displayClicks = document.querySelector('#displayclicks')
 const cookieCounter = new ClickCounter()
 
 
-// const autoClick = setInterval(autoClick, 1000)
+// const autoClick = setIntervals(autoClick, 1000)
 
-function autoClick() 
-{
-    cookieCounter.addCompanionClicksToUsersClicks()
-    updateCounter(displayClicks, cookieCounter)
-}
+// function autoClick() 
+// {
+//     cookieCounter.addCompanionClicksToUsersClicks()
+//     updateCounter(displayClicks, cookieCounter)
+// }
