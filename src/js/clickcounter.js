@@ -130,8 +130,8 @@ const cookieCounter = new ClickCounter()
 
 // const autoClick = setInterval(autoClick, 1000)
 
-// function autoClick() 
-// {
-//     cookieCounter.addCompanionClicksToUsersClicks()
-//     updateCounter(displayClicks, cookieCounter)
-// }
+function autoClick() 
+{
+    cookieCounter.addCompanionClicksToUsersClicks()
+    updateCounter(displayClicks, cookieCounter)
+}
