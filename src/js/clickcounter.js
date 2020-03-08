@@ -75,6 +75,7 @@ class ClickCounter
         this.usersClicks *= Math.pow(1.2, this.compounderCount);
     }
 }
+
 const updateCounter = (displayClicks, ClickCounter) =>
 {
     displayClicks.innerText = ClickCounter.showClicks()
@@ -126,15 +127,11 @@ const buttonElement = document.querySelector('#cookiebutton')
 const displayClicks = document.querySelector('#displayclicks')
 const cookieCounter = new ClickCounter()
 
-cookieButton = (buttonElement, displayClicks, cookieCounter)
-updateCounter = (displayClicks, cookieCounter)
 
-const autoClick = setInterval(autoClick, 1000)
+// const autoClick = setInterval(autoClick, 1000)
 
-function autoClick() 
-{
-    cookieCounter.addCompanionClicksToUsersClicks()
-    updateCounter(displayClicks, cookieCounter)
-   // enableCompanionButton()
-  //  enableCompounderButton()
-}
+// function autoClick() 
+// {
+//     cookieCounter.addCompanionClicksToUsersClicks()
+//     updateCounter(displayClicks, cookieCounter)
+// }
