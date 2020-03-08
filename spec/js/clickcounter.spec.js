@@ -17,14 +17,14 @@ describe ('Click Counter', () =>
     {
         it('returns value of usersClicks', () =>
         {
-            expect(sut.getUsersClicks()).toBe(0)
+            expect(sut.showClicks()).toBe(0)
         });
     })
-    describe('ClickIncrementor', () =>
+    describe('clickButton', () =>
     {
         it('increases value of usersClicks by 1', () =>
         {
-            sut.clickIncrementor()   //Act
+            sut.clickButton()   //Act
             expect(sut.usersClicks).toBe(1)
         });
     })
@@ -119,11 +119,12 @@ describe ('Click Counter', () =>
     })
     describe('purchasing compounder', () =>
     {
-        it('increases click incrementor by 1.2', () =>
+        it('increases user clicks by 1.2', () =>
         {
-            sut.usersClicks = 11;
+            sut.usersClicks = 50;
+            sut.compounderCount = 1;
             sut.purchaseCompounder()
-            expect(sut.usersClicks).toBe(1.2)
+            expect(sut.usersClicks).toBe(57.599999999999994)
         });
     })
 }) 

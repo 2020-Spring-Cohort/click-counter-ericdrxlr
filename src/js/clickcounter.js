@@ -10,14 +10,14 @@ class ClickCounter
     }
     
     // METHODS BELOW
-    getUsersClicks()
+    showClicks()
     {
         return this.usersClicks;
     }
-    clickIncrementor()
+    clickButton()
     {
         this.usersClicks++;
-    }
+    } 
     getcompanionCount()
     {
         return this.companionCount;
@@ -38,6 +38,10 @@ class ClickCounter
        this.companionCount++;
        this.usersClicks -= this.companionValue;
        this.purchasingCompanions();
+    }
+    addCompanionClicksToUsersClicks()
+    {
+        this.usersClicks += this.compounderCount;
     }
     getCompounderCount() 
     {
@@ -68,6 +72,26 @@ class ClickCounter
     }
     usersClickIncreases()
     {
-        this.usersClicks *= 1.2;
+        this.usersClicks *= Math.pow(1.2, this.compounderCount);
     }
 }
+const updateCounter = (displayClicks, ClickCounter) =>
+{
+    displayClicks.innerText = ClickCounter.showClicks()
+}
+const cookieButton = (buttonElement, displayClicks, ClickCounter) =>
+{
+    cookieButton.addEventListener('click', () =>
+    {
+    ClickCounter.clickButton()
+    updateCounter(displayClicks, ClickCounter)
+    })
+}
+const buttonElement = document.querySelector('#cookiebutton')
+const displayClicks = document.querySelector('#displayclicks')
+const cookieCounter = new ClickCounter()
+
+cookieButton = (buttonElement, displayClicks, ClickCounter)
+updateCounter = (displayClicks, ClickCounter)
+
+setInterval(cookieCounter.addCompanionClicksToUsersClicks(), 1000)
