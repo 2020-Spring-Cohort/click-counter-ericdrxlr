@@ -6,17 +6,18 @@ class ClickCounter
         this.companionCount = 0;
         this.companionValue = 100;
         this.compounderCount = 0;
-        this.compounderValue = 10;         
+        this.compounderValue = 10;    
+        this.clickWeight = 1.2;     
     }
     
     // METHODS BELOW
     showClicks()
     {
-        return this.usersClicks;
+        return this.usersClicks.toFixed(2);
     }
     clickButton()
     {
-        this.usersClicks++;
+        this.usersClicks += Math.pow(this.clickWeight, this.compounderCount);
     } 
     getCompanionCount()
     {
@@ -41,7 +42,7 @@ class ClickCounter
     }
     addCompanionClicksToUsersClicks()
     {
-        this.usersClicks += this.compounderCount;
+        this.usersClicks += this.companionCount;
     }
     getCompounderCount() 
     {
@@ -63,7 +64,6 @@ class ClickCounter
         this.compounderCount++;
         this.usersClicks -= this.compounderValue;
         this.purchasingCompounders()
-        this.usersClickIncreases()
     }
     // METHODS JUST HOLDING THE EXTRA CODE
     purchasingCompanions()
@@ -74,9 +74,26 @@ class ClickCounter
     {
         this.compounderValue = this.compounderValue + (this.compounderValue * .1);
     }
-    usersClickIncreases()
+}
+function enableCompounderButton() 
+{
+    if (cookieCounter.usersClicks >= cookieCounter.compounderValue) {
+        compounderButtonElement.removeAttribute('disabled')
+    } 
+    else 
     {
-        this.usersClicks *= Math.pow(1.2, this.compounderCount);
+        compounderButtonElement.disabled = true
+    }
+}
+
+function enableCompanionButton() {
+    if (cookieCounter.usersClicks >= cookieCounter.companionValue) 
+    {
+        companionButtonElement.removeAttribute('disabled')
+    } 
+    else 
+    {
+        companionButtonElement.disabled = true
     }
 }
 
@@ -90,8 +107,8 @@ const cookieButton = (buttonElement, displayClicks, ClickCounter) =>
     {
     ClickCounter.clickButton()
     updateCounter(displayClicks, ClickCounter)
-   // enableCompanionButton()
-   // enableCompounderButton()
+   enableCompanionButton()
+   enableCompounderButton()
 
     })
 }
@@ -108,8 +125,8 @@ const companionButton = (companionButtonElement, companionCountElement, companio
         updateCompanionCounter(companionCountElement, CompanionCounter)
         updateCompanionValue(companionValueElement, CompanionCounter)
         updateCounter(displayClicksElement, CompanionCounter)
-        // enableCompanionButton()
-        // enableCompounderButton()
+        enableCompanionButton()
+        enableCompounderButton()
     })
 } 
 const updateCompanionValue = (companionValueElement, companionCounter) => {
@@ -129,8 +146,8 @@ const compounderButton = (compounderButtonElement, compounderCountElement, compo
         updateCompounderCounter(compounderCountElement, compounderCounter)
         updateCompounderValue(compounderValueElement, compounderCounter)
         updateCounter(displayClicksElement, compounderCounter)
-      //  enableCompanionButton()
-       // enableCompounderButton()
+       enableCompanionButton()
+       enableCompounderButton()
     })
 }
 const updateCompounderValue = (compounderValueElement, compounderCounter) => {
@@ -166,10 +183,12 @@ updateCounter(displayClicksElement, cookieCounter)
 compounderButton(compounderButtonElement, compounderCountElement, compounderValueElement, displayClicksElement, cookieCounter)
 
 
-// const autoClick = setIntervals(autoClick, 1000)
+const autoClickElement = setInterval(autoClick, 1000)
 
-// function autoClick() 
-// {
-//     cookieCounter.addCompanionClicksToUsersClicks()
-//     updateCounter(displayClicks, cookieCounter)
-// }
+function autoClick() 
+{
+    cookieCounter.addCompanionClicksToUsersClicks()
+    updateCounter(displayClicks, cookieCounter)
+    enableCompanionButton()
+    enableCompounderButton()
+}
