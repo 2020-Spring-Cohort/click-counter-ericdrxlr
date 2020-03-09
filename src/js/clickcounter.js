@@ -91,22 +91,25 @@ const cookieButton = (buttonElement, displayClicks, ClickCounter) =>
 
     })
 }
-const updateCompanionCounter = (companionCountElement, companionCounter) =>
+const updateCompanionCounter = (companionCountElement, CompanionCounter) =>
 {
-    companionCountElement.innerText = companionCounter.getCompanionCount()
+    companionCountElement.innerText = CompanionCounter.getCompanionCount()
 }
-const companionButton = (companionButtonElement, companionCountElement, companionValueElement, displayClicksElement, companionCounter)  => 
+const companionButton = (companionButtonElement, companionCountElement, companionValueElement, displayClicksElement, CompanionCounter)  => 
 {
     companionButtonElement.addEventListener('click', function()
     {
-        companionCounter.purchaseClickCompanion()
-        updateCompanionCounter(companionCountElement, companionCounter)
-        updateCompanionValue(companionValueElement, companionCounter)
-        updateCounter(displayClicksElement, companionCounter)
-        enableCompanionButton()
-        enableCompounderButton()
+        CompanionCounter.purchaseClickCompanion()
+        updateCompanionCounter(companionCountElement, CompanionCounter)
+        updateCompanionValue(companionValueElement, CompanionCounter)
+        updateCounter(displayClicksElement, CompanionCounter)
+        // enableCompanionButton()
+        // enableCompounderButton()
     })
-}  
+} 
+const updateCompanionValue = (companionValueElement, companionCounter) => {
+    companionValueElement.innerText = companionCounter.getCompanionValue()
+} 
 const updateCompounderCounter = (compounderCountElement, compounderCounter) =>
 {
     compounderCountElement.innerText = compounderCounter.getCompounderCount()
@@ -125,10 +128,22 @@ const compounderButton = (compounderButtonElement, compounderCountElement, compo
 }    
 const buttonElement = document.querySelector('#cookiebutton')
 const displayClicks = document.querySelector('#displayclicks')
+
+const companionButtontElement = document.querySelector('#companionbutton')
+const companionCountElement = document.querySelector('#companioncount')
+const companionValueElement = document.querySelector('#companionvalue')
+
 const cookieCounter = new ClickCounter()
+
 
 cookieButton(buttonElement, displayClicks, cookieCounter)
 updateCounter(displayClicks, cookieCounter)
+
+updateCompanionCounter(companionCountElement, cookieCounter)
+updateCompanionValue(companionValueElement, cookieCounter)
+updateCounter(displayClicksElement, cookieCounter)
+companionButton(companionButtonElement, companionCountElement, companionValueElement, displayClicksElement, cookieCounter)
+
 
 // const autoClick = setIntervals(autoClick, 1000)
 
