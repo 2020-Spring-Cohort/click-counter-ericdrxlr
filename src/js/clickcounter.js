@@ -153,6 +153,11 @@ const compounderButton = (compounderButtonElement, compounderCountElement, compo
 const updateCompounderValue = (compounderValueElement, compounderCounter) => {
     compounderValueElement.innerText = compounderCounter.getCompounderValue()
 }
+const makeResetButton = (resetButtonElement) => {
+    resetButtonElement.addEventListener('click', function(){
+        location.reload()
+    })
+}
 
 const buttonElement = document.querySelector('#cookiebutton')
 const displayClicks = document.querySelector('#displayclicks')
@@ -165,6 +170,7 @@ const displayClicksElement = document.querySelector('#displayclicks')
 const compounderButtonElement = document.querySelector('#compounderbutton')
 const compounderCountElement = document.querySelector('#compoundercount')
 const compounderValueElement = document.querySelector('#compoundervalue')
+const resetButtonElement = document.querySelector('#reset')
 
 const cookieCounter = new ClickCounter()
 
@@ -181,7 +187,7 @@ updateCompounderCounter(compounderCountElement, cookieCounter)
 updateCompounderValue(compounderValueElement, cookieCounter)
 updateCounter(displayClicksElement, cookieCounter)
 compounderButton(compounderButtonElement, compounderCountElement, compounderValueElement, displayClicksElement, cookieCounter)
-
+makeResetButton(resetButtonElement, cookieCounter)
 
 const autoClickElement = setInterval(autoClick, 1000)
 
@@ -192,3 +198,5 @@ function autoClick()
     enableCompanionButton()
     enableCompounderButton()
 }
+
+
