@@ -47,6 +47,10 @@ class ClickCounter
     {
         return this.compounderCount;
     }
+    getCompounderValue()
+    {
+        return this.compounderValue;
+    }
     purchaseCompounderCondition()
     {
         if (this.usersClicks >= this.compounderValue)
@@ -91,6 +95,7 @@ const cookieButton = (buttonElement, displayClicks, ClickCounter) =>
 
     })
 }
+// COMPANIONSS
 const updateCompanionCounter = (companionCountElement, CompanionCounter) =>
 {
     companionCountElement.innerText = CompanionCounter.getCompanionCount()
@@ -110,6 +115,8 @@ const companionButton = (companionButtonElement, companionCountElement, companio
 const updateCompanionValue = (companionValueElement, companionCounter) => {
     companionValueElement.innerText = companionCounter.getCompanionValue()
 } 
+
+//COMPOUNDERSSSS
 const updateCompounderCounter = (compounderCountElement, compounderCounter) =>
 {
     compounderCountElement.innerText = compounderCounter.getCompounderCount()
@@ -122,17 +129,25 @@ const compounderButton = (compounderButtonElement, compounderCountElement, compo
         updateCompounderCounter(compounderCountElement, compounderCounter)
         updateCompounderValue(compounderValueElement, compounderCounter)
         updateCounter(displayClicksElement, compounderCounter)
-        enableCompanionButton()
-        enableCompounderButton()
+      //  enableCompanionButton()
+       // enableCompounderButton()
     })
-}    
+}
+const updateCompounderValue = (compounderValueElement, compounderCounter) => {
+    compounderValueElement.innerText = compounderCounter.getCompounderValue()
+}
+
 const buttonElement = document.querySelector('#cookiebutton')
 const displayClicks = document.querySelector('#displayclicks')
 
 const companionButtonElement = document.querySelector('#companionbutton')
 const companionCountElement = document.querySelector('#companioncount')
 const companionValueElement = document.querySelector('#companionvalue')
-const displayClicksElement = document.querySelector('#ddisplayclicks')
+const displayClicksElement = document.querySelector('#displayclicks')
+
+const compounderButtonElement = document.querySelector('#compounderbutton')
+const compounderCountElement = document.querySelector('#compoundercount')
+const compounderValueElement = document.querySelector('#compoundervalue')
 
 const cookieCounter = new ClickCounter()
 
@@ -144,6 +159,11 @@ updateCompanionCounter(companionCountElement, cookieCounter)
 updateCompanionValue(companionValueElement, cookieCounter)
 updateCounter(displayClicksElement, cookieCounter)
 companionButton(companionButtonElement, companionCountElement, companionValueElement, displayClicksElement, cookieCounter)
+
+updateCompounderCounter(compounderCountElement, cookieCounter)
+updateCompounderValue(compounderValueElement, cookieCounter)
+updateCounter(displayClicksElement, cookieCounter)
+compounderButton(compounderButtonElement, compounderCountElement, compounderValueElement, displayClicksElement, cookieCounter)
 
 
 // const autoClick = setIntervals(autoClick, 1000)
