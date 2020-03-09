@@ -129,9 +129,10 @@ const compounderButton = (compounderButtonElement, compounderCountElement, compo
 const buttonElement = document.querySelector('#cookiebutton')
 const displayClicks = document.querySelector('#displayclicks')
 
-const companionButtontElement = document.querySelector('#companionbutton')
+const companionButtonElement = document.querySelector('#companionbutton')
 const companionCountElement = document.querySelector('#companioncount')
 const companionValueElement = document.querySelector('#companionvalue')
+const displayClicksElement = document.querySelector('#ddisplayclicks')
 
 const cookieCounter = new ClickCounter()
 
